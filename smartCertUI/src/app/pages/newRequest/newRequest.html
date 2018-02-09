@@ -1,0 +1,120 @@
+<h4>New Share Request</h4>
+
+<!-- input start -->
+<form id="request">
+    <div class="row">
+        <div class="col">
+            <div class="widget">
+                <div class="row">
+                    <div class="col">
+                        
+                        <div class="form-group">
+                            <label>Name</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"> <i class="sli-user"></i>
+                                </span> <input type="name" class="form-control" [(ngModel)]="request.sharedToName"
+                                    [ngModelOptions]="{standalone: true}" placeholder="Name" id="name" name="name">
+                                <br><small class="form-control-feedback"></small>
+                            </div>
+                        </div>
+                        <div class="form-group">
+    		                <label>Email</label>
+    		                <div class="input-group">
+    		                    <span class="input-group-addon"> <i class="sli-envelope"></i>
+    		                    </span> <input type="email" class="form-control" [(ngModel)]="request.sentToEmail"
+    		                        [ngModelOptions]="{standalone: true}" placeholder="Email" id="email" name="emailId">
+                                <br><small class="form-control-feedback"></small>
+    		                </div>
+    		            </div>
+    		            <div class="form-group">
+    		                <label>Phone</label>
+    		                <div class="input-group">
+    		                    <span class="input-group-addon"> <i class="sli-phone"></i>
+    		                    </span> <input type="Number" class="form-control" [(ngModel)]="request.sentToPhoneNumber"
+    		                        [ngModelOptions]="{standalone: true}" placeholder="Phone" id="phone" name="phoneNumber">
+                                <br><small class="form-control-feedback"></small>
+    		                </div>
+    		            </div>
+                        <div class="form-group">
+                            <label>View Limit</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"> <i class="sli-shield"></i>
+                                </span> <input type="Number" class="form-control" [(ngModel)]="request.viewLimit"
+                                    [ngModelOptions]="{standalone: true}" placeholder="View Limit" id="limit" name="viewLimit">
+                                <br><small class="form-control-feedback"></small>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Expiry Date</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"> <i class="sli-calendar"></i>
+                                </span> <input type="Date" [(ngModel)]="request.expiryDate" class="custom-date" 
+                                    [ngModelOptions]="{standalone: true}" placeholder="Expiry Date" id = "expiryDate" name="expiryDate">
+                                <br><small class="form-control-feedback"></small>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Purpose</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"> <i class="sli-question"></i></span>
+                                <select class="form-control" [(ngModel)]="request.purpose" [ngModelOptions]="{standalone: true}" id = "purpose" name="purpose" >
+                                  <option style="width: 1em;" *ngFor="let purpose of purpose" value="{{purpose}}">{{purpose}}</option>
+                                </select>                            
+                            </div>
+                        </div>
+    		            <table id="datatable-example-2" class="table table-hover table-striped table-bordered" style="width: 100%">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center;">Certificate Name</th>
+                                    <th style="text-align: center;">Course Name</th>
+                                    <th style="text-align: center;">Stream</th>
+                                    <th style="text-align: center;">Awarded Date</th>
+                                    <th style="text-align: center;">Select</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor = "let certificate of certificates" >
+                                    <td style="text-align: center;">{{certificate.certificateName}}</td>
+                                    <td style="text-align: center;">{{certificate.courseName}}</td>
+                                    <td style="text-align: center;">{{certificate.streamName}}</td>
+                                    <td style="text-align: center;">{{certificate.awardedDate}}</td>
+                                    <td style="text-align: center;"> 
+                                    	<label class="custom-control custom-checkbox">
+    		                                <input class="custom-control-input" type="checkbox" (click) = "addCert(certificate)">
+    		                                <span class="custom-control-indicator"></span>
+    	                            	</label>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="widget">
+                <div class="row">
+                    <div class="col">                   
+                    	<button class="btn btn-info btn-rounded btn-icon" [disabled] = "!validate()" (click) = "newRequest(request)"  type="submit" name="submit">
+                        	<span class="btn-text">Submit</span>
+                    	</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<style type="text/css">
+    .custom-date{
+        width: 100%;
+        border: solid;
+        border-width: 0.5px;
+        /* border-color: gray; */
+        border-color: #e0e0e0;
+        padding: 6px;
+    }
+</style>
+<!-- input end -->
+

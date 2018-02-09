@@ -1,0 +1,89 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<div class="row">
+  <div class="col">
+      <div class="title" style="font-size: 1.5em;font-weight:bold"><u>Create Certificates</u></div>
+      <div class="description" style="margin-top: 2%"><span style="font-size: 1.2em;font-weight: bold;"> {{ receivedBatchInfo.stream }}</span><span style="font-size: 1.2em"> in </span><span style="font-size: 1.2em;font-weight: bold;"> {{ receivedBatchInfo.courseName }}</span><span style="font-size: 1.2em"> Course in </span><span style="font-size: 1.2em;font-weight: bold;">{{ receivedBatchInfo.institutionName }}</span><span style="font-size: 1.2em"> for the Year </span><span style="font-size: 1.2em;font-weight: bold;">{{ receivedBatchInfo.year }}</span></div>
+  </div>
+</div>
+<!-- <form (click)="uploadAndSendToSigner(certificate)">
+ -->
+ <div style="margin-top: 5%">
+<div class="row">
+    <div class="col col-xl-6">
+      <div class="form-group">
+        <label>Certificate Name</label>
+        <input type="text" class="form-control" [(ngModel)]="certificate.certificateName" [ngModelOptions]="{standalone: true}">
+        <small class="form-control-feedback"></small>
+      </div>
+    </div>
+    <div class="col col-xl-6">
+      <div class="form-group">
+        <label>Certificate Type</label>
+        <select class="form-control" [(ngModel)]="certificate.certificateDescription" [ngModelOptions]="{standalone: true}" >
+          <option style="width: 1em;" *ngFor="let bat of batchYears" value="{{bat}}">{{bat}}</option>
+        </select>
+      </div>
+    </div>
+</div>
+<div style="margin-left: 10%;margin-top: 2%">
+<div class="jumbotron jumbotron-1" [hidden]="issueCertificate">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <a class="btn btn-warning btn-rounded btn-icon" (click)="createCertificates(certificate)">
+                    <i class="sli-share-alt"></i>
+                    <span class="btn-text" style="color: black;">Upload Certificates</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div [hidden]="!issueCertificate">
+<div class="row">
+  <div class="col">
+      <div class="title" style="font-size: 1.5em;margin-left: -7%;font-weight:bold"><u>Created Certificates</u></div>
+  </div>
+</div>
+      <table id="datatable-example-2" class="table table-hover table-striped table-bordered" style="width: 100%;margin-left: -7%">
+          <thead>
+              <tr>
+                  <th style="text-align: center;">Student Name</th>
+                  <th style="text-align: center;">Cerificate Name</th>
+                  <th style="text-align: center;">Student Roll Number</th>                  
+                  <th style="text-align: center;">Cerificate Description</th>
+                  <th style="text-align: center;">Stream</th>
+                  <th style="text-align: center;">View Certificate</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor = "let y of CreatedCertificates ; let i=index">
+                  <td style="text-align: center;">{{y.studentName}}</td>
+                  <td style="text-align: center;">{{y.certificateName}}</td>
+                  <td style="text-align: center;">{{y.studentRollNumber}}</td>
+                  <td style="text-align: center;">{{y.certificateDescription}}</td>
+                  <td style="text-align: center;">{{y.streamName}}</td>
+                  <td style="text-align: center;"><i class="fa fa-file-pdf-o" style="font-size:24px;cursor: pointer;" (click)="viewCertificate(y._id)"></i></td>
+              </tr>
+          </tbody>
+      </table>  
+      <div class="jumbotron jumbotron-1">
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="col">
+                      <a class="btn btn-danger btn-rounded btn-icon" (click)="CancelIssueingCertificate()">
+                          <i class="sli-close"></i>
+                          <span class="btn-text" style="color: white;">Cancel</span>
+                      </a>                      
+                      <a class="btn btn-warning btn-rounded btn-icon" (click)="SenditToApprover()">
+                          <i class="sli-share-alt"></i>
+                          <span class="btn-text" style="color: black;">Issue Certificates</span>
+                      </a>
+                  </div>
+              </div>
+          </div>
+      </div>      
+</div>
+</div>
+</div>

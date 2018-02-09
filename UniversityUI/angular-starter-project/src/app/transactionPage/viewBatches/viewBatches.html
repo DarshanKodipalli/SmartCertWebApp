@@ -1,0 +1,72 @@
+<!-- pages/empty-page -->
+<div>
+<div style="font-weight: bold; margin-top: 1em;margin-left: 2%; font-size: 1.3em">
+<u>Institutions:</u>
+</div>
+    <div class="description" style="font-size: 1.2em;margin-left: 4%;">Click on the Institutes to view the Requests raised by the Students</div>
+    <div class="row">
+    <div class="col">
+        <div class="widget">
+            <div class="row">
+                <div class="col">
+                    <table id="datatable-example-2" class="table table-hover table-striped table-bordered" style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th style="text-align: center;">Institution Id</th>
+                                <th style="text-align: center;">Institution Name</th>
+                                <th style="text-align: center;">Contact Person</th>
+                                <th style="text-align: center;">Address</th>
+                                <th style="text-align: center;">Total Requests</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor = "let request of requests" style="cursor: pointer;" (click)="viewRequests(request)">
+                                <td style="text-align: center;">{{request.instituteNumber}}</td>
+                                <td style="text-align: center;">{{request.instituteName}}</td>
+                                <td style="text-align: center;">{{request.primaryContactName}}</td>
+                                <td style="text-align: center;">{{request.address}}</td>
+                                <td style="text-align: center;">{{request.requestCount}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="modal fade" id="cert" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Certificates Shared</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <table id="datatable-example-2" class="table table-hover table-striped table-bordered" style="width: 100%">
+                                        <thead>
+                                            <tr>
+                                                <th>Certificate Name</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor = "let certificate of certificates">
+                                                <td>{{certificate.certificateName}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<style type="text/css">
+    .modal-backdrop {
+    display:none !important;
+}
+</style>
+<!-- end pages/empty-page -->

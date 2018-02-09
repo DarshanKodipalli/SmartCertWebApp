@@ -1,0 +1,47 @@
+<!-- tables/datatable -->
+<div class="jumbotron jumbotron-2">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <a class="btn btn-success btn-rounded btn-icon" (click)="createCreator()" href="javascript:void(0);">
+                    <i class="sli-wrench"></i>
+                    <span class="btn-text">Add Creator</span>
+                </a>
+            </div>
+         </div>
+      </div>
+</div>
+<div class="row">
+  <div class="col">
+    <div class="widget">
+      <div class="row">
+        <div class="col">
+          <table id="datatable-example-2" class="table table-hover table-bordered">
+            <thead>
+              <tr>
+                <th>S.No</th>
+                <th>Creator</th>
+                <th>Contact Number</th>
+                <th>Email Id</th>
+                <th>Disable</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let y of creators; let i = index ">
+                <td>{{i+1}}</td>
+                <td>{{y.name}}</td>
+                <td>{{y.contactNumber}}</td>
+                <td>{{y.emailId}}</td>
+                <td>
+                  <button class="btn btn-info btn-circle btn-xs" (click)="deleteUser(y)" style="padding: left;">
+                    <i class="sli-trash"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

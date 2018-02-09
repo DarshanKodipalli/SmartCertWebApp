@@ -1,0 +1,100 @@
+<div class="row">
+  <div class="col">
+        <div class="widget">
+            <div class="row">
+                <div class="col">
+                    <div class="description"><span style="font-size: 1.2em;">Create Certificate for </span><span style="font-size: 1.3em;font-weight: bold;"> {{receivedStudent.name}}</span><span style="font-size: 1.2em"> of</span><span style="font-size: 1.3em;font-weight: bold;"> {{receivedBatchInfo.institutionName}}</span><span style="font-size: 1.2em"> , </span><span style="font-size: 1.3em;font-weight: bold;">{{receivedBatchInfo.courseName}},{{receivedBatchInfo.stream}}</span><span style="font-size: 1.2em"> of </span><span style="font-size: 1.2em"> for the year </span><span style="font-size: 1.3em;font-weight: bold;">{{receivedBatchInfo.year}}</span></div>
+                </div>
+            </div>
+        </div>
+  </div>
+</div>
+<div>
+<div class="row m-b-20">
+<div class="col col-xl-6">
+  <div class="form-group">
+    <label><u>University Information</u></label>
+  <p style="margin-left: 3%">
+    <input type="text" name="universityInformation" [(ngModel)]="certificate.universityInformation" style="font-weight: bolder;font-size: 1.2em;width: 100%;border: 0;outline: none;" [ngModelOptions]="{standalone: true}">
+  </p>
+    <small class="form-control-feedback"></small>
+  </div>
+</div>
+</div>
+<div class="row m-b-20">
+<div class="col col-xl-6">
+  <div class="form-group">
+    <label><u>Certificate Content</u></label>
+    <p style="margin-left: 3%">
+    <input type="text" name="certificateContent1" [(ngModel)]="certificateContent1" style="width: 100%;border: 0;outline: none;float: left;" [ngModelOptions]="{standalone: true}">
+
+    <input type="text" name="selectedStudentInContent" [(ngModel)]="selectedStudentInContent" style="float: left;font-weight: bolder;font-size: 1.2em;width: 100%;border: 0;outline: none;" [ngModelOptions]="{standalone: true}">
+
+    <input type="text" name="certificateContent2" [(ngModel)]="certificateContent2" style="width: 100%;border: 0;float: left;outline: none;" [ngModelOptions]="{standalone: true}">
+
+    <input type="text" name="selectedCourseInContent" [(ngModel)]="selectedCourseInContent" style="font-weight: bolder;float: left;font-size: 1.2em;width: 100%;border: 0;outline: none;" [ngModelOptions]="{standalone: true}">
+
+    <input type="text" name="certificateContent3" [(ngModel)]="certificateContent3" style="width: 100%;border: 0;float: left;outline: none;" [ngModelOptions]="{standalone: true}">
+    </p>    
+    <small class="form-control-feedback"></small>
+  </div>
+</div>
+</div>
+<div class="row m-b-20">
+<div class="col col-xl-6">
+  <div class="form-group">
+    <label><u>University Seat Number</u></label>
+    <p style="margin-left: 3%">
+     <input type="text" name="universityNumber" [(ngModel)]="certificate.universityNumber" style="font-weight: bolder;font-size: 1.2em;width: 100%;border: 0;outline: none;" [ngModelOptions]="{standalone: true}">   </p>
+    <small class="form-control-feedback"></small>
+  </div>
+</div>
+</div>
+<div class="row m-b-20">
+<div class="col col-xl-6">
+  <div class="form-group">
+    <label><u>Subject</u></label>
+    <p>
+    <select class="form-control" id="cour" name="cour" [(ngModel)]="selectedStreamInContent" [ngModelOptions]="{standalone: true}" style="margin-left: 1.5%;float: left;font-weight: bolder;font-size: 1.2em;width: 100%;border: 0;outline: 0px;">
+        <option style="width: 1em;" *ngFor="let cour of streamsss" value="{{cour}}">{{cour}}</option>
+    </select>
+    </p>
+    <small class="form-control-feedback"></small>
+  </div>
+</div>
+    <div class="col col-xl-6">
+      <div class="form-group">
+        <label><u>Class</u></label>
+          <select class="form-control" id="cour" name="cour" [(ngModel)]="selectedClass" [ngModelOptions]="{standalone: true}" style="margin-left: 1.5%;float: left;font-weight: bolder;font-size: 1.2em;width: 100%;border: 0px solid #000;outline: 0px;border-style: none;">
+              <option style="width: 1em;" *ngFor="let cour of classes" value="{{cour}}">{{cour}}</option>
+          </select>
+        <small class="form-control-feedback"></small>
+      </div>
+    </div>
+    </div>
+<div class="row m-b-20">
+    <div class="col col-xl-6">
+      <div class="form-group">
+        <label><u>Date</u></label>
+          <input type="date" name="awardedDate" [(ngModel)]="awardedDate" style="margin-left: 1.5%;float: left;font-weight: bolder;font-size: 1.2em;width: 100%;border: 0;outline: none;" [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+</div>
+<div style="margin-left: 10%;margin-top: 4%">
+<div class="jumbotron jumbotron-1">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <a class="btn btn-warning btn-rounded btn-icon">
+                    <i class="sli-share-alt"></i>
+                    <span class="btn-text" style="color: black;">Issue Certificate</span>
+                </a>
+                <a class="btn btn-warning btn-rounded btn-icon" (click)="preview(certificate)">
+                    <i class="sli-eye"></i>
+                    <span class="btn-text" style="color: black;">Preview</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

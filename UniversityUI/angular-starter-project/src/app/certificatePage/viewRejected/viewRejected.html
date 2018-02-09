@@ -1,0 +1,123 @@
+<div class="jumbotron jumbotron-1">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <a class="btn btn-warning btn-rounded btn-icon" (click)="viewRejected()">
+                    <i class="sli-support"></i>
+                    <span class="btn-text">View Rejected Certificates</span>
+                </a>
+                <a class="btn btn-success btn-rounded btn-icon" (click)="viewApproved()">
+                    <i class="sli-wrench"></i>
+                    <span class="btn-text">View Approved Certificates</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ________________________________________________________________________________________________________ Rejected Certificates ________________________________________________________________________________________________________________
+ -->
+<div class="tab-content" [hidden]="rejectedCertificates">
+<div role="tabpanel" class="tab-pane active" id="tab-0">
+	<div class="row">
+    	<div class="col">
+            <div class="widget">
+                <div class="row">
+                    <div class="col">
+                        <div class="title"><u>List of Rejected Certificates</u></div>
+                        <div class="description"><span style="font-size: 1.2em">Rejected Certificates for the Batch:</span><span style="font-size: 1.3em;font-weight: bold;"> {{selectedBatch}}</span><span style="font-size: 1.2em"> for</span><span style="font-size: 1.3em;font-weight: bold;"> {{selectedCourse}}</span></div>
+                    </div>
+                </div>
+            </div>
+		</div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="widget">
+                <div class="row">
+                    <div class="col">
+                        <table id="datatable-example-2" class="table table-hover table-striped table-bordered" style="width: 100%">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center;">Student Roll Number</th>
+                                    <th style="text-align: center;">Student Name</th>
+                                    <th style="text-align: center;">Cerificate Name</th>
+                                    <th style="text-align: center;">Reason For Rejection</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor = "let y of rejectedCertificatesList ; let i=index" style="cursor:pointer" (click)="resendCertificatesPage(i)">
+                                    <td style="text-align: center;">{{y.studentRollNumber}}</td>
+                                    <td style="text-align: center;">{{y.studentName}}</td>
+                                    <td style="text-align: center;">{{y.certificateName}}</td>
+                                    <td style="text-align: center;">{{y.rejectedComments}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div [hidden]="noRejectedCertificates">
+    No certificates
+</div>
+<!-- ____________________________________________________________________________________________Approved Certificates______________________________________________________________________________________________________________
+ -->
+ <div class="tab-content" [hidden]="approvedCertificates">
+<div role="tabpanel" class="tab-pane active" id="tab-0">
+    <div class="row">
+        <div class="col">
+            <div class="widget">
+                <div class="row">
+                    <div class="col">
+                        <div class="title"><u>List of Approved Certificates</u></div>
+                        <div class="description">
+                            <span style="font-size: 1.2em">Approved</span>
+                            <span style="font-size: 1.3em;font-weight: bold;"> Certificates </span>
+                            <span style="font-size: 1.2em"> for the Batch:</span>
+                            <span style="font-size: 1.3em;font-weight: bold;"> {{selectedBatch}}</span>
+                            <span style="font-size: 1.2em"> for</span>
+                            <span style="font-size: 1.3em;font-weight: bold;"> {{selectedCourse}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="widget">
+                <div class="row">
+                    <div class="col">
+                        <table id="datatable-example-2" class="table table-hover table-striped table-bordered" style="width: 100%">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center;">Student Roll Number</th>
+                                    <th style="text-align: center;">Student Name</th>
+                                    <th style="text-align: center;">Cerificate Name</th>
+                                    <th style="text-align: center;">Certificate Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor = "let y of approvedCertificatesList ; let i=index">
+                                    <td style="text-align: center;">{{y.studentRollNumber}}</td>
+                                    <td style="text-align: center;">{{y.studentName}}</td>
+                                    <td style="text-align: center;">{{y.certificateName}}</td>
+                                    <td style="text-align: center;">{{y.certificateDescription}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div [hidden]="noApprovedCertificates">
+    No certificates
+</div>
+<!-- ______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+ -->

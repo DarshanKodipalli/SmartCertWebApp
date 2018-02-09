@@ -1,0 +1,128 @@
+<!-- tables/datatable -->
+<div class="jumbotron jumbotron-2">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <a class="btn btn-success btn-rounded btn-icon" (click)="createUniversity()" href="javascript:void(0);">
+                    <i class="sli-wrench"></i>
+                    <span class="btn-text">Add University</span>
+                </a>
+            </div>
+         </div>
+      </div>
+</div>
+<div class="row">
+   <div class="col">
+      <div class="widget">
+         <div class="row">
+            <div class="col">
+               <table id="datatable-example-2" class="table table-hover table-bordered">
+                  <thead>
+                     <tr>
+                        <th>S.No</th>
+                        <th>University Name</th>
+                        <th>University No</th>
+                        <th>Contact Person</th>
+                        <th>Designation</th>
+                        <th>City</th>
+                        <th>Contact Number</th>
+                        <th>Email Id</th>
+                        <th>More</th>
+                        <!-- 
+                           <th>View Institutes</th>
+                           <th>Edit University</th>
+                           <th>Delete University</th> -->
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr *ngFor = "let y of myData; let i = index ">
+                        <td>{{i+1}}</td>
+                        <td>{{y.name}}</td>
+                        <td (click)="viewInstitutes(y)" style="cursor: pointer;"><u>{{y.universityNumber}}</u></td>
+                        <td>{{y.primaryContactName}}</td>
+                        <td>{{y.primaryDesignation}}</td>
+                        <td>{{y.city}}</td>
+                        <!-- <td>{{y.address}}</td> -->
+                        <td>{{y.primaryContactNumber}}</td>
+                        <td>{{y.primaryEmailId}}</td>
+                        <td>
+                           <button class="btn btn-info btn-circle btn-xs" style="padding: left;" 
+                              data-toggle="modal" data-target="#more">
+                           <i class="sli-arrow-right-circle" (click) = selectUniv(y)></i>
+                           </button>
+                           <div class="modal fade" id="more" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog" role="document">
+                                 <div class="modal-content">
+                                    <div class="modal-header">
+                                       <h5 class="modal-title" id="exampleModalLabel">Certificates Shared</h5>
+                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                       <span aria-hidden="true">&times;</span>
+                                       </button>
+                                    </div>
+                                    <div class="modal-body">
+                                       <table id='datatable-example-3' class='table table-hover table-bordered'>
+                                          <thead>
+                                             <tr>
+<!--                                                 <th>
+                                                   <div>
+                                                      <button class='btn btn-success btn-circle btn-xs' (click)='createInstitute()' style='padding: left;'>
+                                                      <i class='sli-plus'></i>
+                                                      </button>
+                                                   </div>
+                                                   <div>
+                                                      Add Institute
+                                                   </div>
+                                                </th> -->
+<!--                                                 <th>
+                                                   <div>
+<<<<<<< HEAD
+                                                      <button class='btn btn-info btn-circle btn-xs' (click)='' style='padding: left;'>
+=======
+                                                      <button class='btn btn-info btn-circle btn-xs' (click)='viewInstitutes()' style='padding: left;'>
+>>>>>>> 1bcc6ad6adc6d119fd5c56111db82b3bc57aaaaf
+                                                      <i class='sli-arrow-right-circle'></i>
+                                                      </button>
+                                                   </div>
+                                                   <div>
+                                                      View Institutions
+                                                   </div>
+                                                </th>
+ -->                                                <th>
+                                                   <div>
+                                                      <button class='btn btn-warning btn-circle btn-xs' (click)='editUniversity()' style='padding: left;'>
+                                                      <i class='sli-pencil'></i>
+                                                      </button>
+                                                   </div>
+                                                   <div>
+                                                      Edit University
+                                                   </div>
+                                                </th>
+                                                <th>
+                                                   <div>
+                                                      <button class='btn btn-danger btn-circle btn-xs' (click)='deleteUniversity()' style='padding: left;'>
+                                                      <i class='sli-trash'></i>
+                                                      </button>
+                                                   </div>
+                                                   <div>
+                                                      Disable University
+                                                   </div>
+                                                </th>
+                                             </tr>
+                                          </thead>
+                                       </table>
+                                    </div>
+                                    <div class="modal-footer">
+                                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

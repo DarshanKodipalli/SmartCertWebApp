@@ -1,0 +1,18 @@
+        <div style="margin-top: 12%;">
+            <div class="widget">
+            <div class="row">
+                <div class="col">
+                    <div class="title" style="font-size: 1.5em"><u>Mode of Uploading the Certificates</u></div>
+                    <div class="description"><span style="font-size: 1.2em;margin-left: 2.5%">Select the way of Uploading the certificates for: </span><span style="font-size: 1.3em;font-weight: bold;"> {{receivedBatchInfo.stream}}</span><span style="font-size: 1.2em"> in </span><span style="font-size: 1.3em;font-weight: bold;">{{receivedBatchInfo.institutionName}}</span><span style="font-size: 1.2em"> for the Year </span><span style="font-size: 1.3em;font-weight: bold;">{{receivedBatchInfo.year}}</span></div>
+                </div>
+            </div>
+            </div>
+            <div style="margin-left: 33%;margin-top: 2%">
+                            <a class="btn btn-warning btn-rounded btn-icon" (click)="uploadManually()">
+                                <span class="btn-text" style="color: black;">Upload Individually</span>
+                            </a>
+                            <a class="btn btn-warning btn-rounded btn-icon" (click)="throughFileUpload()">
+                                <span class="btn-text" style="color: black;">Bulk Upload </span>
+                            </a>
+            </div>            
+        </div>

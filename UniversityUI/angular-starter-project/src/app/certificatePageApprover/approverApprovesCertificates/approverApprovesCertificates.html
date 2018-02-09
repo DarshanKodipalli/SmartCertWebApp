@@ -1,0 +1,86 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<div class="tab-content">
+<div role="tabpanel" class="tab-pane active" id="tab-0">
+	<div class="row">
+    	<div class="col">
+            <div class="widget">
+                <div class="row">
+                    <div class="col">
+                        <div class="title"><u>List of Uploaded Files:</u></div>
+                        <div class="description"><span style="font-size: 1.2em">Uploaded Certificates for the Batch:</span><span style="font-size: 1.3em;font-weight: bold;"> {{receivedCertificateParams.year}}</span><span style="font-size: 1.2em"> for</span><span style="font-size: 1.3em;font-weight: bold;"> {{receivedCertificateParams.courseName}}</span></div>
+                    </div>
+                </div>
+            </div>
+		</div>
+    </div>
+    <div class="jumbotron jumbotron-1">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <a class="btn btn-warning btn-rounded btn-icon" (click)="selectAll()">
+                    <i class="sli-check"></i>
+                    <span class="btn-text" style="color: black;">Select All</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="widget">
+                <div class="row">
+                    <div class="col">
+                        <table id="datatable-example-2" class="table table-hover table-striped table-bordered" style="width: 100%">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center;">Student Name</th>
+                                    <th style="text-align: center;">Cerificate Name</th>
+                                    <th style="text-align: center;">Cerificate Description</th>
+                                    <th style="text-align: center;">View Certificate</th>
+                                    <th style="text-align: center;">Approve / Reject Certificates</th>
+                                    <th style="text-align: center;" [hidden]="hideColumn">Comments</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor = "let y of certificates ; let i=index">
+                                    <td style="text-align: center;">{{y.studentName}}</td>
+                                    <td style="text-align: center;">{{y.certificateName}}</td>
+                                    <td style="text-align: center;">{{y.certificateDescription}}</td>
+                                    <td style="text-align: center;"><i class="fa fa-file-pdf-o" style="font-size:24px;cursor: pointer;" (click)="viewCertificate(i)"></i></td>
+                                    <td style="text-align: center;">
+                                        <form>
+                                            <div class="form-group">
+                                                <label class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" [(ngModel)]="y.selected" [ngModelOptions]="{standalone: true}" (click)="approve(i,1)">
+                                                    <span class="custom-control-indicator"></span>
+                                                    <span class="custom-control-description" style="color: green;">Approve</span>
+                                                </label>
+                                                <label class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" (click)="approve(i,2)">
+                                                    <span class="custom-control-indicator"></span>
+                                                    <span class="custom-control-description" style="color: red;">Reject</span>
+                                                </label>
+                                            </div>
+                                        </form>
+                                    </td>
+                                    <td [hidden]="!y.isChecked" style="text-align: center;">
+                                    <div>
+                                            <input type="text" style="text-align: center;font-size: 1em;" [(ngModel)]="rejectComments[i]" (change)="RejectComments(i,rejectComments[i])"/></div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div style="float: right;"> 
+                    <button class="btn btn-default" (click)="signTheSelectedCertificates()" style="padding: left;"> 
+                        Submit
+                    </button>
+                </div>                    
+            </div>
+        </div>
+    </div>
+</div>
+</div>

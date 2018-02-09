@@ -1,0 +1,39 @@
+<div class="tab-content">
+<div role="tabpanel" class="tab-pane active" id="tab-0">
+<div class="row">
+  <div class="col">
+      <div class="title" style="font-size: 1.5em">Requests from: <span style="font-weight: bolder;">{{instituteName}}</span></div>
+  </div>
+</div>
+    <div class="row">
+        <div class="col">
+            <div class="widget">
+                <div class="row">
+                    <div class="col">
+                        <table id="datatable-example-2" class="table table-hover table-striped table-bordered" style="width: 100%">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center;">Request ID</th>
+                                    <th style="text-align: center;">Shared By</th>
+                                    <th style="text-align: center;">Shared To</th>
+                                    <th style="text-align: center;">Purpose</th>
+                                    <th style="text-align: center;">Shared On</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor = "let y of requests ;">
+                                    <td style="text-align: center;">{{y.requestId}}</td>
+                                    <td style="text-align: center;">{{y.studentName}}</td>
+                                    <td style="text-align: center;">{{y.sharedToName}}</td>
+                                    <td style="text-align: center;">{{y.purpose}}</td>
+                                    <td style="text-align: center;">{{y.sharedOn}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

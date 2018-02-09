@@ -1,0 +1,202 @@
+<div class="row">
+   <div class="col">
+      <div class="user-profile-top">
+         <img class="rounded-circle" src="/assets/faces/w9.png" alt="image" />
+         <h5>{{student.FirstName}}</h5>
+         <div class="row text-center buttons">
+            <div class="col">
+               <div class="row flex-items-xs-middle">
+                  <div class="col">
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<hr>
+<div class="row">
+   <div class="col">
+      <div class="row">
+         <div class="col">
+            <ul class="nav nav-tabs">
+               <li class="nav-item">
+                  <a class="nav-link active" data-toggle="tab" data-target="#user-profile-tabs-1">Personal Details</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" data-target="#user-profile-tabs-2">Educational Details</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" data-target="#user-profile-tabs-3">Security settings</a>
+               </li>
+            </ul>
+            <div class="tab-content">
+               <div role="tabpanel" class="tab-pane active" id="user-profile-tabs-1">
+                  <div class="row">
+                     <div class="col col-xl-4">
+                        <div class="widget">
+                           <div class="row">
+                              <div class="col">
+                                 <p>Name</p>
+                                 <div class="form-group">
+                                    <div class="input-group">
+                                       <span class="input-group-addon">
+                                       <i class="sli-user-follow"></i>
+                                       </span>
+                                       <input type="text" class="form-control" [(ngModel)]="student.name"
+                                    [ngModelOptions]="{standalone: true}" disabled="true">
+                                    </div>
+                                 </div>
+                                 <!-- <p>Last name</p>
+                                 <div class="form-group">
+                                    <div class="input-group">
+                                       <span class="input-group-addon">
+                                       <i class="sli-user-following"></i>
+                                       </span>
+                                       <input type="text" class="form-control" [(ngModel)]="student.lastName"
+                                    [ngModelOptions]="{standalone: true}" disabled="true">
+                                    </div>
+                                 </div>
+                                 <p>Middle Name</p>
+                                 <div class="form-group">
+                                    <div class="input-group">
+                                       <span class="input-group-addon">
+                                       <i class="sli-user-following"></i>
+                                       </span>
+                                       <input type="text" class="form-control" [(ngModel)]="student.middleName"
+                                    [ngModelOptions]="{standalone: true}" disabled="true">
+                                    </div>
+                                 </div> -->
+                                 <p>Date of birth</p>
+                                 <div class="form-group">
+                                    <div class="input-group">
+                                       <span class="input-group-addon">
+                                       <i class="sli-calendar"></i>
+                                       </span>
+                                       <input type="text" class="form-control" [(ngModel)]="student.dateOfBirth"
+                                    [ngModelOptions]="{standalone: true}" disabled="true">
+                                    </div>
+                                 </div>
+                                 <p>Phone Number</p>
+                                 <div class="form-group">
+                                    <div class="input-group">
+                                       <span class="input-group-addon">
+                                       <i class="sli-phone"></i>
+                                       </span>
+                                       <input type="text" class="form-control" [(ngModel)]="student.phoneNumber"
+                                    [ngModelOptions]="{standalone: true}" disabled="true">
+                                    </div>
+                                 </div>
+                                 <p>EmailId</p>
+                                 <div class="form-group">
+                                    <div class="input-group">
+                                       <span class="input-group-addon">
+                                       <i class="sli-envelope-open"></i>
+                                       </span>
+                                       <input type="text" class="form-control" [(ngModel)]="student.emailId"
+                                    [ngModelOptions]="{standalone: true}" disabled="true">
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div role="tabpanel" class="tab-pane" id="user-profile-tabs-2">
+                  <div class="row">
+                     <div class="col-md-6" *ngFor = "let university of universities">
+                       <div class="add-text">
+                           <h4 class="card-title">{{university.universityName}}</h4>
+                           <h4></h4>
+                           <p class="card-text" style="color:#000000">Enrollment Number:</p>
+                           <p class="card-actions">{{university.enrollmentNumber}}</p>
+                           <p class="card-actions">
+                              <button class="btn btn-primary" (click) = "getInstitutions()">View Institutions</button>
+                           </p>
+                       </div>
+                     </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                     <div class="col-md-6" *ngFor = "let institute of institutions">
+                       <div class="add-text">
+                           <h4 class="card-title">{{institute.institutionName}}</h4>
+                           <h4></h4>
+                           <p class="card-text" style="color:#000000">Enrolment Date : {{institute.enrolmentDate}}</p>
+                           <p class="card-text" style="color:#000000">Course Name : {{institute.courseName}}</p>
+                           <p class="card-text" style="color:#000000">Specialization : {{institute.specialization}}</p>
+                           <p class="card-text" style="color:#000000">Roll Number : {{institute.instituteRollNUmber}}</p>
+                       </div>
+                     </div>
+                  </div>
+               </div>
+               <div role="tabpanel" class="tab-pane" id="user-profile-tabs-3">
+                  <div class="row">
+                     <div class="col col-xl-4">
+                        <div class="widget">
+                           <div class="row">
+                              <div class="col">
+                                 <p>Current password</p>
+                                 <div class="form-group">
+                                    <div class="input-group">
+                                       <span class="input-group-addon">
+                                       <i class="sli-lock-open"></i>
+                                       </span>
+                                       <input type="password" class="form-control" [(ngModel)]="currentPassword" [ngModelOptions]="{standalone: true}" placeholder="*******">
+                                    </div>
+                                 </div>
+                                 <p>New password</p>
+                                 <div class="form-group">
+                                    <div class="input-group">
+                                       <span class="input-group-addon">
+                                       <i class="sli-lock"></i>
+                                       </span>
+                                       <input type="password" class="form-control" [(ngModel)]="newPassword" [ngModelOptions]="{standalone: true}" placeholder="">
+                                    </div>
+                                 </div>
+                                 <p>Confirm new password</p>
+                                 <div class="form-group">
+                                    <div class="input-group">
+                                       <span class="input-group-addon">
+                                       <i class="sli-lock"></i>
+                                       </span>
+                                       <input type="password" class="form-control" [(ngModel)]="confirmPassword" [ngModelOptions]="{standalone: true}" placeholder="">
+                                    </div>
+                                 </div>
+                                 <div class="form-group">
+                                    <button class="btn btn-primary" (click)="updatePassword()">Update security settings</button>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- end pages/user-profile -->
+<style type="text/css">
+   .user-card{
+      border: solid;
+      padding: 20px;
+   }
+   .add-text{
+      padding: 20px;
+      border: solid;
+      border-width: 1px;
+      border-color: #a3a375;
+   }
+   hr { 
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+} 
+</style>

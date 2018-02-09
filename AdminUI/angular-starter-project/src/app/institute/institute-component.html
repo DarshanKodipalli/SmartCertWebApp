@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="col">
+    <div class="widget">
+      <div class="row">
+        <div class="col">
+          <div>
+            <select class="form-control" [(ngModel)]="selectedUniversity" [ngModelOptions]="{standalone: true}" (change)="getInstitutes()" placeholder = "select university">
+              <option *ngFor="let u of university" [ngValue] = "u">{{u.name}}</option>
+            </select>
+          </div>
+          <table id="datatable-example-2" class="table table-hover table-bordered" style="overflow-x:auto;width:100%; display:block;">
+            <thead>
+              <tr>
+                <th>S.No</th>
+                <th>Institute Name</th>
+                <th>City</th>
+                <th>Contact Person</th>
+                <th>Designation</th>
+                <th>Contact Number</th>
+                <th>Email Id</th>
+                <th>Edit Institute</th>
+                <th>Delete Institute</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let y of myData; let i = index ">
+                <td>{{i+1}}</td>
+                <td>{{y.instituteName}}</td>
+                <td>{{y.city}}</td>
+                <td>{{y.primaryContactName}}</td>
+                <td>{{y.primaryDesignation}}</td>
+                <td>{{y.primaryContactNumber}}</td>
+                <td>{{y.primaryEmailId}}</td>
+                <td>
+                  <button class="btn btn-warning btn-circle btn-xs" (click)="editInstitute(y)" style="padding: left;">
+                    <i class="sli-pencil"></i>
+                  </button>
+                </td>
+                <td>
+                  <button class="btn btn-danger btn-circle btn-xs" data-target="#modal-sm-danger" data-toggle="modal" type="button" (click)="deleteInstitute(y)" style="padding: left;">
+                    <i class="sli-trash"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div *ngIf="myData.length<0" >No Universities Found</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

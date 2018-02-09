@@ -1,0 +1,131 @@
+<!-- pages/empty-page -->
+<div [hidden]="showRequest">
+    No certificates were Shared by <span style="font-weight: bolder;">{{studentName}}</span>
+</div>
+<div [hidden]="!showRequest">
+    <div class="row">
+    <div class="col">
+        <div class="widget">
+            <div class="row">
+                <div class="col">
+                    <h5>Certificates shared by <span style="font-weight: bolder;">{{studentName}}</span></h5>
+                        <div class="row" style="padding-left: 12%;margin-top: 3%" >
+                            <div class="col-6 col-md-6 col-lg-3 m-b-5" style="background-color:#ffa000;">
+                                <div class="text-widget-1 color-black text-center">
+                                    <div class="row flex-items-xs-middle">
+                                        <div class="col">
+                                            <div class="title" style="font-size: 2em">
+                                                {{certificateCount}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row flex-items-xs-middle">
+                                        <div class="col">
+                                            <div class="subtitle">
+                                                Number Of Shares </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="margin-left:75px">
+                                
+                            </div>
+                            <div class="col-6 col-md-6 col-lg-3 m-b-5" style="background-color:#212121;">
+                                <div class="text-widget-1 color-white text-center">
+                                    <div class="row flex-items-xs-middle">
+                                        <div class="col">
+                                            <div class="title" style="font-size: 2em">
+                                                {{numberOfCertificatesShared}} </div>
+                                        </div>
+                                    </div>
+                                    <div class="row flex-items-xs-middle">
+                                        <div class="col">
+                                            <div class="subtitle">
+                                                Number of Certificates Shared </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="margin-left:75px">
+                                
+                            </div>                                                            
+                            <div class="col-6 col-md-6 col-lg-3 m-b-5" style="background-color:#ffa000;">
+                                <div class="text-widget-1 color-black text-center">
+                                    <div class="row flex-items-xs-middle">
+                                        <div class="col">
+                                            <div class="title" style="font-size: 2em">
+                                                {{numberOfCertificatesViewed}} </div>
+                                        </div>
+                                    </div>
+                                    <div class="row flex-items-xs-middle">
+                                        <div class="col">
+                                            <div class="subtitle">
+                                                Number of Times Viewed </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>    
+                        </div>
+                    <table id="datatable-example-2" class="table table-hover table-striped table-bordered" style="width: 100%;margin-top: 7%">
+                        <thead>
+                            <tr>
+                                <th style="text-align: center;">Shared To</th>
+                                <th style="text-align: center;">Phone</th>
+                                <th style="text-align: center;">Purpose</th>
+                                <th style="text-align: center;">Expiry Date</th>
+                                <th style="text-align: center;">Certificate Count</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor = "let request of requests" >
+                                <td style="text-align: center;">{{request.sharedToName}}</td>
+                                <td style="text-align: center;">{{request.sentToPhoneNumber}}</td>
+                                <td style="text-align: center;">{{request.purpose}}</td>
+                                <td style="text-align: center;">{{request.tokenExpiry}}</td>
+                                <td style="text-align: center;">
+                                   <!--  <a (click)="showCertificates(request.certificates)" data-toggle="modal" data-target="#cert"> -->{{request.certificates.length}}<!-- </a> -->
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="modal fade" id="cert" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Certificates Shared</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <table id="datatable-example-2" class="table table-hover table-striped table-bordered" style="width: 100%">
+                                        <thead>
+                                            <tr>
+                                                <th>Certificate Name</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor = "let certificate of certificates">
+                                                <td>{{certificate.certificateName}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<style type="text/css">
+    .modal-backdrop {
+    display:none !important;
+}
+</style>
+<!-- end pages/empty-page -->

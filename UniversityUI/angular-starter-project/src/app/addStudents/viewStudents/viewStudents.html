@@ -1,0 +1,40 @@
+<div class="tab-content">
+<div role="tabpanel" class="tab-pane active" id="tab-0">
+<div class="row">
+  <div class="col">
+      <div class="title" style="font-size: 1.5em;font-weight:bold"><u>List of Students</u></div>
+      <div class="description" style="margin-top: 2%"><span style="font-size: 1.2em;font-weight: bold;"> {{ receivedInfo.selectedStream1 }}</span><span style="font-size: 1.2em"> in </span><span style="font-size: 1.2em;font-weight: bold;"> {{ receivedInfo.selectedCourse1 }}</span><span style="font-size: 1.2em"> Course in </span><span style="font-size: 1.2em;font-weight: bold;">{{ receivedInfo.selectedInstitution1 }}</span><span style="font-size: 1.2em"> for the Year </span><span style="font-size: 1.2em;font-weight: bold;">{{ receivedInfo.selectedYear1 }}</span></div>
+  </div>
+</div>
+    <div class="row">
+        <div class="col">
+            <div class="widget">
+                <div class="row">
+                    <div class="col">
+                        <table id="datatable-example-2" class="table table-hover table-striped table-bordered" style="width: 100%">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center;">Roll Number</th>
+                                    <th style="text-align: center;">Student Name</th>
+                                    <th style="text-align: center;">Nationality</th>
+                                    <th style="text-align: center;">Phone Number</th>
+                                    <th style="text-align: center;">Email Id</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor = "let y of studentInformation ;">
+                                    <td style="text-align: center;">{{y.rollNumber}}</td>
+                                    <td style="text-align: center;">{{y.name}}</td>
+                                    <td style="text-align: center;">{{y.nationality}}</td>
+                                    <td style="text-align: center;">{{y.phoneNumber}}</td>
+                                    <td style="text-align: center;">{{y.emailId}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

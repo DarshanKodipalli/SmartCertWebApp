@@ -1,0 +1,55 @@
+<div class="tab-content">
+<div role="tabpanel" class="tab-pane active" id="tab-0">
+	<div class="row">
+    	<div class="col">
+            <div class="widget">
+                <div class="row">
+                    <div class="col">
+                        <div class="title"><u>Institute Name:</u></div>
+                        <div class="description"><span style="font-size: 1.3em;font-weight: bold;">{{selectedInstitution}}</span></div>
+                    </div>
+                    <div class="col">
+                        <div class="title"><u>List of Uploaded Files:</u></div>
+                        <div class="description"><span style="font-size: 1.2em">Uploaded Certificates for the Batch:</span><span style="font-size: 1.3em;font-weight: bold;"> {{selectedBatch}}</span><span style="font-size: 1.2em"> for</span><span style="font-size: 1.3em;font-weight: bold;"> {{selectedCourse}}</span><span style="font-size: 1.2em"> Course in </span><span style="font-size: 1.3em;font-weight: bold;">{{selectedInstitution}}</span></div>
+                    </div>
+                </div>
+            </div>
+		</div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="widget">
+                <div class="row">
+                    <div class="col">
+                        <table id="datatable-example-2" class="table table-hover table-striped table-bordered" style="width: 100%">
+                            <thead>
+                                <tr>
+                                    <th>Cerificate Name</th>
+                                    <th>Cerificate Description</th>
+                                    <th>University Number</th>
+                                    <th>Course Name</th>
+                                    <th>Stream</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor = "let y of certificates">
+                                    <td>{{y.certificateName}}</td>
+                                    <td>{{y.certificateDescription}}</td>
+                                    <td>{{y.universityNumber}}</td>
+                                    <td>{{y.courseName}}</td>
+                                    <td>{{y.stream}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="float: right;"> 
+        <button class="btn btn-default" (click)="sendCertificatesTOSigner()" style="padding: left;"> 
+            Send to signer
+        </button>
+    </div>    
+</div>
+</div>

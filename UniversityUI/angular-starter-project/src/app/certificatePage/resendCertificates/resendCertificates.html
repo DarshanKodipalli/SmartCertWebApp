@@ -1,0 +1,108 @@
+<div class="row">
+	<div class="col">
+        <div class="widget">
+            <div class="row">
+                <div class="col">
+                    <div class="title"><u>Student Name:</u></div>
+                    <div class="description"><span style="font-size: 1.3em;font-weight: bold;">{{selectedStudent}}</span></div>
+                </div>
+            </div>
+        </div>
+<hr> 
+          <p style="font-size: 1.5em;">
+            Reason for rejecting the Certificate: <span style="font-weight: bold;">{{rejectedComments}}</span></p>
+            <p style="font-size: 1.5em;">Click <a (click)="viewCertificate()"><u> here </u></a> to view the previously uploaded Certificate</p>
+<hr> 
+	</div>
+</div>
+<div>
+<div class="row m-b-20">
+<div class="col col-xl-6">
+  <div class="form-group">
+    <label>Student Name</label>
+    <p style="font-weight: bolder;font-size: 1.2em;">
+      {{certificate.studentName}}
+    </p>
+    <small class="form-control-feedback"></small>
+  </div>
+</div>
+<div class="col col-xl-6">
+  <div class="form-group">
+    <label>Course Name</label>
+    <p style="font-weight: bolder;font-size: 1.2em;">
+      {{certificate.courseName}}
+    </p>
+    <small class="form-control-feedback"></small>
+  </div>
+</div>
+</div>
+<div class="row m-b-20">
+<div class="col col-xl-6">
+  <div class="form-group">
+    <label>Stream</label>
+    <p style="font-weight: bolder;font-size: 1.2em;">
+      {{certificate.streamName}}
+    </p>
+    <small class="form-control-feedback"></small>
+  </div>
+</div>
+<div class="col col-xl-6">
+  <div class="form-group">
+    <label>Batch/Year</label>
+    <p style="font-weight: bolder;font-size: 1.2em;">
+      {{certificate.batch}}
+    </p>
+    <small class="form-control-feedback"></small>
+  </div>
+</div>
+</div>
+<div class="row">
+    <div class="col col-xl-6">
+      <div class="form-group">
+        <label>Certificate Name</label>
+        <input type="text" class="form-control" [(ngModel)]="certificate.certificateName" [ngModelOptions]="{standalone: true}" id="certificateName1-0" name="certificateName1">
+        <small class="form-control-feedback"></small>
+      </div>
+    </div>
+<!--                                 <select class="form-control" id="cour-1" name="cour-1" [(ngModel)]="selectedBatch" [ngModelOptions]="{standalone: true}" (click)="batchSelected(selectedBatch,selectedCourse,selectedInstitution)">
+                                <option style="width: 1em;" *ngFor="let bat of batchYears" value="{{bat}}">{{bat}}</option>
+                            </select>
+ -->
+    <div class="col col-xl-6">
+      <div class="form-group">
+        <label>Certificate Description</label>
+<!--         <input type="text" class="form-control" id="certificateDescription-0" [ngModelOptions]="{standalone: true}" [(ngModel)]="certificate.certificateDescription" name="certificateDescription">
+        <small class="form-control-feedback"></small> -->
+        <select class="form-control" id="descc-1" name="descc-1" [(ngModel)]="certificate.certificateDescription" [ngModelOptions]="{standalone: true}" >
+          <option style="width: 1em;" *ngFor="let bat of batchYears" value="{{bat}}">{{bat}}</option>
+        </select>
+
+      </div>
+    </div>
+</div>
+<div>
+<div>
+<p>
+  Upload New Certificate Here
+</p>   
+<file-upload-resend #fu (change)="fu.upload()" [multiple]="true"></file-upload-resend>    
+</div>
+<!-- <div>
+  <input type="file" (change)="onChange($event)">
+</div>
+ --></div>
+
+<div style="margin-left: 10%;margin-top: 4%">
+<div class="jumbotron jumbotron-1">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <a class="btn btn-warning btn-rounded btn-icon" (click)="ResendToSigner(certificate)">
+                    <i class="sli-share-alt"></i>
+                    <span class="btn-text" style="color: black;">Re-Issue</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

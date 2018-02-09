@@ -1,0 +1,29 @@
+{
+  "name": "Student",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "async": "^2.5.0",
+    "aws-sdk": "^2.82.0",
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.17.2",
+    "express": "^4.16.2",
+    "express-fileupload": "^0.1.4",
+    "hashmap": "^2.1.0",
+    "mongoose": "^4.12.4",
+    "multer": "^1.3.0",
+    "node-cache": "^4.1.0",
+    "node-rsa": "^0.4.2",
+    "node-xlsx": "^0.7.4",
+    "nodemailer": "^4.0.1",
+    "path": "^0.12.7",
+    "uuid": "^3.0.1",
+    "xml-crypto": "^0.8.5",
+    "xml2js": "^0.4.18",
+    "xmlbuilder": "^8.2.2",
+    "xmldom": "^0.1.27"
+  }
+}

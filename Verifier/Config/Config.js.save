@@ -1,0 +1,14 @@
+module.exports = {
+		databaseUrls:"mongodb://127.0.0.1:27017/univ"||process.env.DB,
+		CollectionNames:{
+			viewRequest:"viewRequests",
+			certificates:"certificates"
+		},
+		port:process.env.PORT || "3001",
+		issuerIp:"13.",
+		issuerPort:3003,
+		verifierIp:"127.0.0.1",
+		verifierPort:3001,
+		studentIp:"127.0.0.1",
+		studentPort:3000
+};

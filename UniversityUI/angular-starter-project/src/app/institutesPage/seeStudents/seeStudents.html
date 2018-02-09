@@ -1,0 +1,54 @@
+<div class="tab-content">
+<div role="tabpanel" class="tab-pane active" id="tab-0">
+<div class="row">
+  <div class="col">
+      <div class="title" style="font-size: 1.5em;font-weight:bold"><u>List of Students</u></div>
+      <div class="description" style="margin-top: 2%"><span style="font-size: 1.2em;font-weight: bold;">{{ReceivedInfo.courseName}},{{ ReceivedInfo.stream }}</span><span style="font-size: 1.2em"></span><span style="font-size: 1.2em"> Course in </span><span style="font-size: 1.2em;font-weight: bold;">{{ ReceivedInfo.institutionName }}</span><span style="font-size: 1.2em"> for the Year </span><span style="font-size: 1.2em;font-weight: bold;">{{ this.ReceivedInfo.year }}</span></div>
+  </div>
+<div style="margin-left: 10%;">
+    <div class="jumbotron jumbotron-1">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <a class="btn btn-warning btn-rounded btn-icon" (click)="createCertificatesForAll()">
+                        <i class="sli-note"></i>
+                        <span class="btn-text" style="color: black;">Create Certificates for All</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+    <div class="row">
+        <div class="col">
+            <div class="widget">
+                <div class="row">
+                    <div class="col">
+                        <table id="datatable-example-2" class="table table-hover table-striped table-bordered" style="width: 100%">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center;">Roll Number</th>
+                                    <th style="text-align: center;">Student Name</th>
+                                    <th style="text-align: center;">Nationality</th>
+                                    <th style="text-align: center;">Phone Number</th>
+                                    <th style="text-align: center;">Email Id</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor = "let y of studentInformation" style="cursor: pointer;" (click)="uploadCertificates(y)">
+                                    <td style="text-align: center;">{{y.rollNumber}}</td>
+                                    <td style="text-align: center;">{{y.name}}</td>
+                                    <td style="text-align: center;">{{y.nationality}}</td>
+                                    <td style="text-align: center;">{{y.phoneNumber}}</td>
+                                    <td style="text-align: center;">{{y.emailId}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,33 @@
+<div *ngIf = "consumer === false">
+	<div  *ngIf = "login === false">
+		<div class="container-fluid">
+		    <div class="row">
+				<div class="page">
+					<login></login>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div *ngIf = "login === true">
+		<div class="bg-dark" *ngIf="layout == 'empty-view-1'"></div>
+		<navbar-1 *ngIf="layout == 'default-sidebar-1' || layout == 'collapsed-sidebar-1' || layout == 'off-canvas-1' || layout == 'sidebar-over-1' || layout == 'top-navigation-1' || layout == 'top-navigation-2'"></navbar-1>
+		<top-navigation-1 *ngIf="layout == 'top-navigation-1'"></top-navigation-1>
+		<jumbotron-2 *ngIf="layout == 'top-navigation-2'"></jumbotron-2>
+		<top-navigation-2 *ngIf="layout == 'top-navigation-2'"></top-navigation-2>
+		<div class="container-fluid">
+		    <div class="row">
+					<div class="left-sidebar-placeholder" *ngIf="layout == 'default-sidebar-1' || layout == 'collapsed-sidebar-1' || layout == 'off-canvas-1' || layout == 'sidebar-over-1' || layout == 'top-navigation-1' || layout == 'top-navigation-2'"></div>
+					<left-sidebar-1 *ngIf="layout == 'default-sidebar-1' || layout == 'collapsed-sidebar-1' || layout == 'off-canvas-1' || layout == 'sidebar-over-1' || layout == 'top-navigation-1' || layout == 'top-navigation-2'"></left-sidebar-1>
+					<div class="col main">
+						<div class="page">
+								<router-outlet></router-outlet>
+						</div>
+					</div>
+			</div>
+		</div>
+		<backdrops></backdrops>
+	</div>
+</div>
+<div *ngIf = "consumer === true">
+	<view></view>
+</div>

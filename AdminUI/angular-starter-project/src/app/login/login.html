@@ -1,0 +1,111 @@
+<div id="mybg" [ngStyle]="{
+   'background-image': 'url(assets/images/admin.jpg)' ,
+   width: '100%', overflow: 'auto', height: '100%',
+   'background-repeat': 'no-repeat',
+   'background-position': 'center',
+   'background-origin': 'initial',
+   'background-size': 'cover' }">
+<div style="margin-left: 35%;margin-top: 10%; opacity: .9">
+   <div class="sample-form-2 login">
+      <div class="side-bg-1"></div>
+      <div class="side-bg-2 bg-danger"></div>
+      <div class="side-description">
+         <div class="logo">
+            <i class="sli-graduation"></i>
+            <span class="title">Smart Univerity Admin Portal</span>
+         </div>
+         <p>Welcome to Smart University Admin Application</p>
+         <p>Admin portal for managing: </p>
+         <ul style="display: block;
+            list-style-type: disc;
+            margin-top: 1em;
+            margin-bottom: 1 em;
+            margin-left: 0;
+            margin-right: 0;
+            padding-left: 40px;">
+            <li>University</li>
+            <li>Institutes</li>
+            <li>Users</li>
+            <li>Roles</li>
+         </ul>
+      </div>
+      <form [hidden]="!otpFieldFlag">
+         <div class="form-description">
+            <h3>Login</h3>
+            <p>Please enter your name and email to login.</p>
+         </div>
+         <div class="form-group">
+            <label>Your email</label>
+            <div class="input-group">
+               <span class="input-group-addon">
+               <i class="sli-envelope"></i>
+               </span>
+               <input type="email" [(ngModel)]="login.emailId" [ngModelOptions]="{standalone: true}" name="emailEntered" class="form-control" placeholder="Email" required>
+            </div>
+         </div>
+         <div [hidden]="!(checkFlag == 0)" class="form-group has-warning">
+            <div class="form-control-feedback">Email Id is Invalid</div>
+         </div>
+         <div [hidden]="!(checkFlag == -1)" class="form-group has-warning">
+            <div class="form-control-feedback">Email Id cannot be empty</div>
+         </div>
+         <div class="form-group">
+            <label>Your password</label>
+            <div class="input-group">
+               <span class="input-group-addon">
+               <i class="sli-lock"></i>
+               </span>
+               <input type="password" class="form-control" [(ngModel)]="login.password" [ngModelOptions]="{standalone: true}" placeholder="Password" required>
+            </div>
+         </div>
+         <div [hidden]="!(passCheck == 0)" class="form-group has-warning">
+            <div class="form-control-feedback">Password cannot be empty</div>
+         </div>
+         <div [hidden]="!(passCheck == -2)" class="form-group has-warning">
+            <div class="form-control-feedback">Incorrect Credentials!</div>
+         </div>
+         <div [hidden]="!(passCheck == -1)" class="form-group has-warning">
+            <div class="form-control-feedback">Something went wrong, Please contact admin</div>
+         </div>
+         <div class="form-group">
+            <label class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input">
+            <span class ="custom-control-indicator"></span>
+            <span class="custom-control-description">Remember me</span>
+            </label>
+         </div>
+         <div class="form-group">
+            <button class="btn btn-primary btn-rounded" type="submit" (click)="submit()">Submit</button>
+         </div>
+         <div class="links">
+            <p>Forgot Password?
+               <a>Click here</a>
+            </p>
+         </div>
+         <div [hidden]="!(otpCheck == -1)" class="form-group has-warning">
+            <div class="form-control-feedback">Incorrect OTP! Re-enter Credentials</div>
+         </div>
+      </form>
+      <form [hidden]="otpFieldFlag">
+        <div class="form-description">
+           <h3>One Time Password</h3>
+           <p>Please enter the OTP you've received</p>
+        </div>
+        <div class="form-group">
+           <label>Enter The OTP</label>
+           <div class="input-group">
+              <span class="input-group-addon">
+              <i class="sli-lock"></i>
+              </span>
+              <input type="password" class="form-control" [(ngModel)]="otpEntered" [ngModelOptions]="{standalone: true}" placeholder="Enter OTP">
+           </div>
+           <div class="form-group">
+              <button class="btn btn-primary btn-rounded" type="submit" (click)="submitOtp()">Verify OTP</button>
+           </div>
+        </div>
+      </form>
+      <div [hidden]="!(otpCheck == 0)" class="form-group has-warning">
+         <div class="form-control-feedback">OTP cannot be empty</div>
+      </div>
+   </div>
+</div>

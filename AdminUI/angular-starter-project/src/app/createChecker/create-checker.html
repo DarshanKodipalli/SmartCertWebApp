@@ -1,0 +1,110 @@
+<div class="row">
+  <div class="col">
+    <div class="widget">
+      <div class="row">
+        <div class="col">
+          <div id="form-steps-1">
+            <ul class="nav nav-tabs nav-tabs-justified" id="steps">
+              <li class="nav-item">
+                <a class="nav-link active tab-0" data-toggle="tab" data-target="#tab-0">General Information</a>
+              </li>
+            </ul>
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane active" id="tab-0">
+                <form id="step-0" #loginForm="ngForm">
+                  <div class="row">
+                    <div class="col col-xl-6">
+                      <div class="form-group">
+                        <label>Checker Name</label>
+                        <input type="text" class="form-control" [(ngModel)]="universityUsers.name" id="universityUsersName-0" name="universityUsersName" required>
+                        <small class="form-control-feedback"></small>
+                      </div>
+                    </div>
+                    <div class="col col-xl-6">
+                      <div class="form-group">
+                        <label>Designation</label>
+                        <input type="text" class="form-control" id="designation-0" [(ngModel)]="universityUsers.designation" name="designation" required>
+                        <small class="form-control-feedback"></small>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div *ngIf="myData" class="form-group">
+                    <div class="row m-b-20">
+                      <div class="col col-xl-6">
+                        <div class="form-group">
+                          <label for="name">Select University</label>
+                          <select class="form-control" name="univ" id="universityUsersUniversityNumber-0" [(ngModel)]="selectedUniv" required>
+                              <option *ngFor="let univ of myData" [ngValue]="univ" > {{univ.name}} </option>
+                            </select>
+                          <small class="form-control-feedback"></small>
+                        </div>
+                      </div>
+                      <div class="col col-xl-6">
+                        <div class="form-group">
+                          <label for="type">University Number</label>
+                          <input type="type" class="form-control" id="universityUsersUniversityNumber-0" name="type" [(ngModel)]="selectedUniv.universityNumber" required disabled>
+                          <small class="form-control-feedback"></small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row m-b-20">
+
+                    <div class="col col-xl-6">
+                      <div class="form-group">
+                        <label>Employee Id</label>
+                        <input type="text" class="form-control" id="employeeId-0" [(ngModel)]="universityUsers.employeeId" name="employeeId" required>
+                        <small class="form-control-feedback"></small>
+                      </div>
+                    </div>
+
+                    <div class="col col-xl-6">
+                      <div class="form-group">
+                        <label>Contact Number</label>
+                        <input type="text" class="form-control" id="contactNumber-0" [(ngModel)]="universityUsers.contactNumber" name="contactNumber" required>
+                        <small class="form-control-feedback"></small>
+                      </div>
+                    </div>
+
+
+
+                  </div>
+                  <!-- ----------------------------------------------------------------------------- -->
+                  <div class="row m-b-20">
+                    <div class="col col-xl-6">
+                      <div class="form-group">
+                        <label>Email Id</label>
+                        <input type="email" class="form-control" id="emailId-0" [(ngModel)]="universityUsers.emailId" name="emailId" required>
+                        <small class="form-control-feedback"></small>
+                      </div>
+                    </div>
+
+                    <div class="col col-xl-4">
+                      <div class="form-group">
+                        <label>Create Password</label>
+                        <input type="password" class="form-control" id="password-0" [(ngModel)]="universityUsers.password" name="password" required>
+                        <small class="form-control-feedback"></small>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="row">
+                    <div class="col">
+                      <button type="submit" name="submit" class="btn btn-info" [disabled]="!loginForm.form.valid" data-toggle="modal" data-target="#modal-default-info" (click)="SubmitUniversityUser(universityUsers)">Submit</button>
+                      <button class="btn btn-warning" (click)="cancelProcess()">Cancel</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end forms/steps -->

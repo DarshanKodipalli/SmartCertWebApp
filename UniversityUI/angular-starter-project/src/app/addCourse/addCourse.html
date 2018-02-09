@@ -1,0 +1,86 @@
+<h4>Add New Course</h4>
+<form id="request">
+    <div class="row">
+        <div class="col">
+            <div class="widget">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label>Institution</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="sli-chart"></i>
+                                </span>
+                                <select class="form-control" id="insti" name="insti" [(ngModel)]="selectedInstitution" [ngModelOptions]="{standalone: true}" (click)="institutionSelected(selectedInstitution)" placeholder="Institution">
+                                    <option style="width: 1em;" *ngFor="let insti of institutes" [ngValue]="insti">{{insti.instituteName}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+    		                <label>Course Name</label>
+    		                <div class="input-group">
+    		                    <span class="input-group-addon">
+                                 <i class="sli-envelope"></i>
+    		                    </span>
+                                 <input type="text" class="form-control" [(ngModel)]="courseName"
+    		                        [ngModelOptions]="{standalone: true}" placeholder="Course Name" id="courseName" name="courseName">
+                                <br><small class="form-control-feedback"></small>
+    		                </div>
+    		            </div>
+                        <div class="form-group">
+                            <table id="datatable-example-2" class="table table-hover table-striped table-bordered" style="width: 100%">
+                                <tbody>
+                                    <tr *ngFor = "let stream of streams">
+                                        <td>{{stream.streamName}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Stream</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                 <i class="sli-envelope"></i>
+                                </span>
+                                 <input type="text" class="form-control" [(ngModel)]="stream"
+                                    [ngModelOptions]="{standalone: true}" placeholder="Stream Name" id="courseName" name="courseName">
+                                <br><small class="form-control-feedback"></small>
+                            </div>
+                        </div>
+                        <button class="btn btn-success btn-rounded btn-icon" [disabled] = "false" (click)="addStream()" >
+                            <span class="btn-text">Add</span>
+                        </button>
+                        <button class="btn btn-danger btn-rounded btn-icon" [disabled] = "false" (click)="removeStream()" >
+                            <span class="btn-text">Delete</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="widget">
+                <div class="row">
+                    <div class="col">                   
+                    	<button class="btn btn-info btn-rounded btn-icon" [disabled] = "false" (click)="create()" type="submit" name="submit">
+                        	<span class="btn-text">Create</span>
+                    	</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<style type="text/css">
+    .custom-date{
+        width: 100%;
+        border: solid;
+        border-width: 0.5px;
+        /* border-color: gray; */
+        border-color: #e0e0e0;
+        padding: 6px;
+    }
+</style>
+<!-- input end -->

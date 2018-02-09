@@ -1,0 +1,91 @@
+<div class="tab-content">
+<div role="tabpanel" class="tab-pane active" id="tab-0">
+<div class="row">
+    <div class="col">
+        <div class="widget">
+            <div class="row">
+                <div class="col">
+                    <div class="col col-xl-10">
+                        <div class="form-group">
+                            <label style="font-weight: bold">Institutes</label>
+                            <select class="form-control" id="insti" name="insti" [(ngModel)]="selectedInstitution" [ngModelOptions]="{standalone: true}" (click)="institutionSelected(selectedInstitution)">
+                                <option style="width: 1em;" *ngFor="let insti of institutes" [ngValue]="insti">{{insti.instituteName}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="col col-xl-10">
+                            <fieldset class="form-group">
+                                <label style="font-weight: bold">Course Name</label>
+                            <select class="form-control" id="cour" name="cour" [(ngModel)]="selectedCourse" [ngModelOptions]="{standalone: true}" (click)="courseSelected(selectedCourse)">
+                                <option style="width: 1em;" *ngFor="let cour of courses" [ngValue]="cour">{{cour.courseName}}</option>
+                            </select>
+                            </fieldset>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="col col-xl-10">
+                        <fieldset class="form-group">
+                            <label style="font-weight: bold">Stream</label>
+                            <select class="form-control" id="stre" name="stre" [(ngModel)]="selectedStream" [ngModelOptions]="{standalone: true}" (click)="streamSelected(selectedStream)">
+                                <option style="width: 1em;" *ngFor="let stre of streams" [ngValue]="stre">{{stre.streamName}}</option>
+                            </select>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="col col-xl-10">
+                        <div class="form-group">
+                            <label style="font-weight: bold">Year</label>
+                            <input type="text" class="form-control" [(ngModel)]="year" (change)="yearSelected(year)" placeholder="Enter the Year">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 2%;" [hidden]="hideDecisionDiv">
+            <div style="margin-left: 30%;margin-top: 2%">
+                <button class="btn btn-primary" (click)="createBatch()" >
+                    Select Batch
+                </button>
+            </div>
+            <div class="widget" [hidden]="hideCreate">
+                <div class="row">
+                    <div class="col">
+                        <div class="title" style="font-size: 1.5em"><u>Mode of Adding the Students</u></div>
+                        <div class="description"><span style="font-size: 1.2em;margin-left: 2.5%">Select the way of adding the Students for: </span><span style="font-size: 1.3em;font-weight: bold;"> {{selectedStream.streamName}}</span><span style="font-size: 1.2em"> for</span><span style="font-size: 1.3em;font-weight: bold;"> {{selectedCourse.courseName}}</span><span style="font-size: 1.2em"> Course in </span><span style="font-size: 1.3em;font-weight: bold;">{{selectedInstitution.instituteName}}</span><span style="font-size: 1.2em"> for the Year </span><span style="font-size: 1.3em;font-weight: bold;">{{selectedYear}}</span></div>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-left: 30%;margin-top: 2%" [hidden]="hideCreate">
+                <button class="btn btn-primary" (click)="manualAdditionSelected()">
+                    Add Manually
+                </button>
+                <button class="btn btn-default" style="margin-left: 1.5%" (click)="fileUploadAdditionSelected()">
+                    File Upload
+                </button>
+            </div>            
+        </div>
+<!--         <div [hidden]="hideFileUploads">
+            <div class="widget">
+                <div class="row">
+                    <div class="col">
+                        <div class="title">File uploads</div>
+                        <div class="description"><span style="font-size: 1.2em">Upload the Certificates for the Batch:</span><span style="font-size: 1.3em;font-weight: bold;"> {{batSelected}}</span><span style="font-size: 1.2em"> for</span><span style="font-size: 1.3em;font-weight: bold;"> {{courSelected}}</span><span style="font-size: 1.2em"> Course in </span><span style="font-size: 1.3em;font-weight: bold;">{{institutioSelected}}</span></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <form enctype="multipart/form-data" class="dropzone" id="my-dropzone"></form>
+                    </div>
+                </div>
+                <button class="btn btn-primary" (click)="viewUploaded()">
+                    Manage Uploaded Files
+                </button>
+            </div>
+        </div> -->
+    </div>
+</div>
+</div>
+</div>

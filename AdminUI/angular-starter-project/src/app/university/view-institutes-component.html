@@ -1,0 +1,62 @@
+<!-- tables/datatable -->
+<div class="jumbotron jumbotron-2">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <a class="btn btn-success btn-rounded btn-icon" (click)="createInstitute()" href="javascript:void(0);">
+                    <i class="sli-wrench"></i>
+                    <span class="btn-text">Add Institute</span>
+                </a>
+            </div>
+         </div>
+      </div>
+</div>
+<div style="margin-left: 5%;font-size: 1.5em;">
+  Institutions under <span style="font-weight: bolder;">{{universityName}}</span>  
+</div>
+<div class="row">
+  <div class="col">
+    <div class="widget">
+      <div class="row">
+        <div class="col">
+          <table id="datatable-example-2" class="table table-hover table-bordered" style="width: 100%">
+            <thead>
+              <tr>
+                <th>S.No</th>
+                <th>Institute Name</th>
+                <th>City</th>
+                <th>Contact Person</th>
+                <th>Designation</th>
+                <th>Contact Number</th>
+                <th>Email Id</th>
+                <th>Edit</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let y of myData; let i = index ">
+                <td>{{i+1}}</td>
+                <td>{{y.instituteName}}</td>
+                <td>{{y.city}}</td>
+                <td>{{y.primaryContactName}}</td>
+                <td>{{y.primaryDesignation}}</td>
+                <td>{{y.primaryContactNumber}}</td>
+                <td>{{y.primaryEmailId}}</td>
+                <td>
+                  <button class='btn btn-warning btn-circle btn-xs' (click)='editInstitution(y)'>
+                    <i class='sli-pencil'></i>
+                  </button>
+                </td>
+                <td>
+                  <button class='btn btn-danger btn-circle btn-xs' (click)='disableInstitution(y)' style='padding: left;'>
+                    <i class='sli-trash'></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,82 @@
+<div class="tab-content">
+<div role="tabpanel" class="tab-pane active" id="tab-0">
+<div class="row">
+    <div class="col">
+        <div class="widget">
+            <div class="row">
+                <div class="col">
+                    <div class="col col-xl-10">
+                        <div class="form-group">
+                            <label style="font-weight: bold">Institutes</label>
+                            <select class="form-control" id="insti-1" name="insti-1" [(ngModel)]="selectedInstitution" [ngModelOptions]="{standalone: true}" (click)="institutionSelected(selectedInstitution)">
+                                <option style="width: 1em;" *ngFor="let insti of institutes" value="{{insti.id}}">{{insti.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+			    <div class="col">
+			        <div class="col col-xl-10">
+			                <fieldset class="form-group">
+			                    <label style="font-weight: bold">Course Name</label>
+			                    <input autocomplete="off" type="text" name="typeahead-1" (blur)="courseSelected($event)" [(ngModel)]="selectedCourse" data-provide="typeahead" class="typeahead-1 form-control"> 
+			                </fieldset>
+			        </div>
+			    </div>
+			    <div class="col">
+			        <div class="col col-xl-10">
+			            <fieldset class="form-group">
+			                <label style="font-weight: bold">Stream</label>
+			                <input autocomplete="off" type="text" name="typeahead-2" data-provide="typeahead" [(ngModel)]="selectedStream" (blur)="streamSelected($event)" class="typeahead-2 form-control">
+			            </fieldset>
+			        </div>
+			    </div>
+			    <div class="col">
+			        <div class="col col-xl-10">
+			            <div class="form-group">
+			                <label style="font-weight: bold">Year</label>
+			                <input type="text" class="form-control" [(ngModel)]="Year" (change)="yearSelected(Year)" placeholder="Enter the Year">
+			            </div>
+			        </div>
+			    </div>
+            </div>
+        </div>
+        <div style="margin-top: 2%;" [hidden]="hideDecisionDiv">
+            <div class="widget">
+            <div class="row">
+                <div class="col">
+                    <div class="title" style="font-size: 1.5em"><u>Mode of Adding the Students</u></div>
+                    <div class="description"><span style="font-size: 1.2em;margin-left: 2.5%">Select the way of adding the Students for: </span><span style="font-size: 1.3em;font-weight: bold;"> {{selectedStream}}</span><span style="font-size: 1.2em"> for</span><span style="font-size: 1.3em;font-weight: bold;"> {{selectedCourse}}</span><span style="font-size: 1.2em"> Course in </span><span style="font-size: 1.3em;font-weight: bold;">{{selectedInstitution}}</span><span style="font-size: 1.2em"> for the Year </span><span style="font-size: 1.3em;font-weight: bold;">{{selectedYear}}</span></div>
+                </div>
+            </div>
+            </div>
+            <div style="margin-left: 30%;margin-top: 2%">
+                <button class="btn btn-primary" (click)="manualAdditionSelected()">
+                    Add Manually
+                </button>
+                <button class="btn btn-default" style="margin-left: 1.5%" (click)="fileUploadAdditionSelected()">
+                    Through File Upload
+                </button>
+            </div>            
+        </div>
+<!--         <div [hidden]="hideFileUploads">
+            <div class="widget">
+                <div class="row">
+                    <div class="col">
+                        <div class="title">File uploads</div>
+                        <div class="description"><span style="font-size: 1.2em">Upload the Certificates for the Batch:</span><span style="font-size: 1.3em;font-weight: bold;"> {{batSelected}}</span><span style="font-size: 1.2em"> for</span><span style="font-size: 1.3em;font-weight: bold;"> {{courSelected}}</span><span style="font-size: 1.2em"> Course in </span><span style="font-size: 1.3em;font-weight: bold;">{{institutioSelected}}</span></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <form enctype="multipart/form-data" class="dropzone" id="my-dropzone"></form>
+                    </div>
+                </div>
+                <button class="btn btn-primary" (click)="viewUploaded()">
+                    Manage Uploaded Files
+                </button>
+            </div>
+        </div> -->
+    </div>
+</div>
+</div>
+</div>

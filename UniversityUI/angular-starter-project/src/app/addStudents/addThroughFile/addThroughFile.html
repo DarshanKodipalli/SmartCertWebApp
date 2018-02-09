@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col">
+      <div class="title" style="font-size: 1.5em;font-weight:bold"><u>Add Student</u></div>
+      <div class="description" style="margin-top: 2%"><span style="font-size: 1.2em;font-weight: bold;"> {{ selectedStream1 }}</span><span style="font-size: 1.2em"> in </span><span style="font-size: 1.2em;font-weight: bold;"> {{selectedCourse1 }}</span><span style="font-size: 1.2em"> Course in </span><span style="font-size: 1.2em;font-weight: bold;">{{ selectedInstitution1 }}</span><span style="font-size: 1.2em"> for the Year </span><span style="font-size: 1.2em;font-weight: bold;">{{ selectedYear1 }}</span></div>
+  </div>
+</div>
+<div style="margin-top: 3%;">
+<bulk-upload-student #fu (change)="fu.upload()"></bulk-upload-student>    
+</div>
+<div class="jumbotron jumbotron-1">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col">
+              <a class="btn btn-warning btn-rounded btn-icon" (click)="addStudents()">
+                  <i class="sli-share-alt"></i>
+                  <span class="btn-text" style="color: black;">Add Students</span>
+              </a>
+          </div>
+      </div>
+  </div>
+</div>      

@@ -1,0 +1,94 @@
+<div>
+<div>
+<div class="row" style="margin-top: 2%">
+    <div class="col">
+        <div class="col col-xl-10">
+            <div class="form-group">
+                <label style="font-weight: bold">Student Name</label>
+                <input type="text" class="form-control" [(ngModel)]="studentName" placeholder="Enter the Student Name">
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="col col-xl-10">
+            <fieldset class="form-group">
+                <label style="font-weight: bold">Student Roll Number</label>
+                <input type="text" class="form-control" [(ngModel)]="studentRollNumber" placeholder="Enter the Roll Number">
+            </fieldset>
+        </div>
+    </div>
+                  <div class="col">
+                    <div class="col col-xl-10">
+                            <fieldset class="form-group">
+                                <label style="font-weight: bold">Course Name</label>
+                            <select class="form-control" id="cour" name="cour" [(ngModel)]="selectedCourse" [ngModelOptions]="{standalone: true}" (click)="courseSelected(selectedCourse)">
+                                <option style="width: 1em;" *ngFor="let cour of coursess" value="{{cour}}">{{cour}}</option>
+                            </select>
+                            </fieldset>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="col col-xl-10">
+                        <fieldset class="form-group">
+                            <label style="font-weight: bold">Stream</label>
+                            <select class="form-control" id="stre" name="stre" [(ngModel)]="selectedStream" [ngModelOptions]="{standalone: true}" (click)="streamSelected(selectedStream)">
+                                <option style="width: 1em;" *ngFor="let stre of streamss" value="{{stre}}">{{stre}}</option>
+                            </select>
+                        </fieldset>
+                    </div>
+                </div>
+    <div class="col">
+        <div class="col col-xl-10">
+            <div class="form-group">
+                <label style="font-weight: bold">Batch</label>
+                <input type="text" class="form-control" [(ngModel)]="certificateBatch" placeholder="Enter the Batch">
+            </div>
+        </div>
+    </div>    
+</div>
+    <div style="position: absolute;left: 50%;right: 50%;margin-top: 1%"> 
+        <button class="btn btn-warning" (click)="searchCertificates(studentName,certificateBatch,studentRollNumber,selectedCourse,selectedStream)" style="color: black"> 
+            Search
+        </button>
+    </div>                    
+</div>
+<div class="lable title"  style="font-weight: bold; margin-top: 5%;margin-left: 2%; font-size: 1.3em; ">
+<u (click)="onload()" style="cursor: pointer;">All Approved Certificates ({{numberOfCertificates}}  Certificates ) :</u>
+</div>
+    <div class="description" style="font-size: 1.2em;margin-left: 4%;">Click on the Record to view the Certificate</div>
+    <div class="row" style="margin-top: 2%" [hidden]="hidetable">
+        <div class="col">
+            <div class="widget">
+                <div class="row">
+                    <div class="col">
+                        <table id="datatable-example-2" class="table table-hover table-striped table-bordered" style="width: 100%">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center;">Student Roll Number</th>
+                                    <th style="text-align: center;">Student Name</th>
+                                    <th style="text-align: center;">Cerificate Name</th>
+                                    <th style="text-align: center;">Course Name</th>
+<!--                                     <th style="text-align: center;">Stream</th>
+ -->                                    <th style="text-align: center;">Year</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor = "let y of ApprovedCertificates" (click)="viewCertificate(y)" style="cursor: pointer;">
+                                    <td style="text-align: center;">{{y.studentRollNumber}}</td>
+                                    <td style="text-align: center;">{{y.studentName}}</td>
+                                    <td style="text-align: center;">{{y.certificateName}}</td>
+                                    <td style="text-align: center;">{{y.courseName}}</td>
+<!--                                     <td style="text-align: center;">{{y.streamName}}</td> -->
+                                    <td style="text-align: center;">{{y.batch}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div [hidden]="!hidetable">
+        <p style="font-size: 1.4em;margin-top: 10%;margin-left: 5%"> No records matches your search parameters. Click <u (click)="onload()" style="cursor: pointer;">All Approved Certificates:</u> to view all the Approved Certificates. </p>
+    </div>
+</div>

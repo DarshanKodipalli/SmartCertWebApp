@@ -1,0 +1,89 @@
+<div style="background-image: url('./assets/images/products/student3.jpeg');
+            content: '';
+            width: 100%;
+            height: 130%;
+            position:absolute;
+            overflow: auto;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-origin: initial;"></div>
+<!--  <div id="mybg" [ngStyle]="{
+'background-image': 'url(./assets/images/products/student3.jpeg)' ,
+ 'background-repeat': 'no-repeat',
+  'background-position': 'center',
+  'background-origin': 'initial',
+  'background-size': 'cover' }">                         -->
+<div style="margin-left: 40%;margin-top: 5%;filter: blur(0px);opacity: .9">
+<div class="sample-form-2 login">
+    <div class="side-bg-1"></div>
+    <div class="side-bg-2" style="background-color: #ffa000"></div>
+    <div class="side-description" style="color: black">
+        <div class="logo">
+            <i class="sli-graduation"></i>
+            <span class="title" style="color: black">SmartCert</span>
+        </div>
+        <div style="margin-top: 7%">
+        <p>Smart University is a robust and scalable software solution for issuing, viewing, sharing and verifying educational certificates.</p>
+        <p>Core features of the solution include broadcasting the records on a Block Chain, sharing and verifying the certificates without having to go to the issuing authority.</p>
+    </div></div>    
+    <form *ngIf="flag === false">
+        <div class="form-description">
+            <h2> Student Login</h2>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon">
+            <i class="sli-envelope"></i>
+        </span>
+                <input type="email" [(ngModel)]="emailId" [ngModelOptions]="{standalone: true}" name="emailEntered" class="form-control" placeholder="Email" [disabled]="flag">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon">
+            <i class="sli-lock"></i>
+        </span>
+                <input type="password" class="form-control" [(ngModel)]="password" [ngModelOptions]="{standalone: true}"  placeholder="Password" [disabled]="flag">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input">
+        <span class="custom-control-indicator"></span>
+        <span class="custom-control-description">Remember me</span>
+    </label>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary btn-rounded" type="submit" (click)="login()">Submit</button>
+        </div>
+        <div class="links">
+            <p>
+                <a>Forgot Password?</a>
+            </p>
+        </div>
+                <div style="padding-top: 45%;font-size: .8em;padding-left: 20%" layout="row" layout-align="center center" flex>
+         <span>Copyright © 2017 - GoSmartChain</span>
+       </div>
+
+        </form>
+
+        <form>
+        <div class="form-group" *ngIf="flag === true">
+            <label>OTP</label>
+            <input type="password" class="form-control" [(ngModel)]="otp"
+                [ngModelOptions]="{standalone: true}" placeholder="OTP"
+                [disabled]="!flag">
+        </div>
+        <div class="form-group" *ngIf="flag === true">
+            <button class="btn btn-primary btn-rounded" type="submit"
+                (click)="verifyOTP()" [disabled]="!flag">Submit</button>
+        </div>
+                <div style="padding-top: 80%;font-size: .8em;padding-left: 20%" layout="row" layout-align="center center" flex>
+         <span>Copyright © 2017 - GoSmartChain</span>
+       </div>
+
+    </form>
+</div>
+</div>
+<!--             </div> -->

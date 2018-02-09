@@ -1,0 +1,81 @@
+<div>
+<div>
+<div class="row" style="margin-top: 2%">
+    <div class="col">
+        <div class="col col-xl-10">
+            <div class="form-group">
+                <label style="font-weight: bold">Student Name</label>
+                <input type="text" class="form-control" [(ngModel)]="studentName" placeholder="Enter the Student Name">
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="col col-xl-10">
+                <fieldset class="form-group">
+                    <label style="font-weight: bold">Course Name</label>
+                    <input autocomplete="off" type="text" name="typeahead-1" (blur)="courseSelected($event)" [(ngModel)]="selectedCourse" data-provide="typeahead" class="typeahead-1 form-control"> 
+                </fieldset>
+        </div>
+    </div>
+    <div class="col">
+        <div class="col col-xl-10">
+            <fieldset class="form-group">
+                <label style="font-weight: bold">Stream</label>
+                <input autocomplete="off" type="text" name="typeahead-2" data-provide="typeahead" [(ngModel)]="selectedStream" (blur)="streamSelected($event)" class="typeahead-2 form-control">
+            </fieldset>
+        </div>
+    </div>
+    <div class="col">
+        <div class="col col-xl-10">
+            <div class="form-group">
+                <label style="font-weight: bold">Batch</label>
+                <input type="text" class="form-control" [(ngModel)]="certificateBatch" placeholder="Enter the Batch">
+            </div>
+        </div>
+    </div>    
+</div>
+    <div style="position: absolute;left: 50%;right: 50%;margin-top: 1%"> 
+        <button class="btn btn-warning" (click)="searchCertificates(studentName,certificateBatch,selectedCourse,selectedStream)" style="color: black"> 
+            Search
+        </button>
+    </div>                    
+</div>
+<div class="lable title"  style="font-weight: bold; margin-top: 5%;margin-left: 2%; font-size: 1.3em; ">
+<u (click)="onload()" style="cursor: pointer;">All Approved Certificates:</u>
+</div>
+    <div class="row" style="margin-top: 2%" [hidden]="hidetable">
+        <div class="col">
+            <div class="widget">
+                <div class="row">
+                    <div class="col">
+                        <table id="datatable-example-2" class="table table-hover table-striped table-bordered" style="width: 100%">
+                            <thead>
+                                <tr>
+                                    <th>Student Name</th>
+                                    <th>Cerificate Name</th>
+                                    <th>Course Name</th>
+                                    <th>Cerificate Description</th>
+                                    <th>Stream</th>
+                                    <th>Year</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor = "let y of ApprovedCertificates">
+                                    <td>{{y.studentName}}</td>
+                                    <td>{{y.certificateName}}</td>
+                                    <td>{{y.courseName}}</td>
+                                    <td>{{y.certificateDescription}}</td>
+                                    <td>{{y.stream}}</td>
+                                    <td>{{y.batch}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div [hidden]="!hidetable">
+        <p style="font-size: 1.4em;margin-top: 10%;margin-left: 5%"> No records matches your search parameters. Click <u (click)="onload()" style="cursor: pointer;">All Approved Certificates:</u> to view all the Approved Certificates. </p>
+    </div>
+</div>
