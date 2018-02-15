@@ -6,12 +6,12 @@ module.exports = {
     institution: "institution"
   },
   port: process.env.PORT || "8545",
-    internalIp:"192.168.0.36",
-    issuerIp: "58.68.95.151",
+    internalIp:"localhost",
+    issuerIp: "localhost",
     issuerPort: 3001,
-    adminIp:"56.68.95.151",
+    adminIp:"localhost",
     adminPort:3010,
-    studentIp:"56.68.95.151",
+    studentIp:"localhost",
     studentPort:3004,
     blockChainIp:"localhost",
     blockChainPort:3008

@@ -9,16 +9,16 @@ module.exports = {
 		},
 		port:process.env.PORT || "3001",
 		internalIp:"localhost",
-		issuerIp: "58.68.95.151",
+		issuerIp: "localhost",
 	    issuerPort: 3001,
-	    adminIp:"56.68.95.151",
+	    adminIp:"localhost",
 	    adminPort:3010,
-	    studentIp:"56.68.95.151",
+	    studentIp:"localhost",
 	    studentPort:3004,
 	    blockChainIp:"localhost",
 	    blockChainPort:3008,
-	    verifierIp:"58.68.95.151",
-	    verifierProofIp:"56.68.95.151",
+	    verifierIp:"localhost",
+	    verifierProofIp:"localhost",
 	    verifierPort:3002
 
 };

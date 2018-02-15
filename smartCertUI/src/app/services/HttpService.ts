@@ -9,8 +9,8 @@ export class HttpService{
 	private flag = 1;
 	constructor(private http:Http){
 		if(this.flag == 1){
-			this.url = "https://106.51.74.119:3004/";// location.hostname;
-			this.consumerUrl = "https://58.68.95.151:3002/",
+			this.url = "https://localhost:3004/";// location.hostname;
+			this.consumerUrl = "https://localhost:3002/",
 			this.blockChainUrl = "https://localhost:3008/"
 		}
 	}

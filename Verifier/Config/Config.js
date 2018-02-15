@@ -5,11 +5,11 @@ module.exports = {
 			certificates:"certificates"
 		},
 		port:process.env.PORT || "3002",
-		issuerIp: "58.68.95.151",
+		issuerIp: "localhost",
 	    issuerPort: 3001,
-	    adminIp:"56.68.95.151",
+	    adminIp:"localhost",
 	    adminPort:3010,
-	    studentIp:"56.68.95.151",
+	    studentIp:"localhost",
 	    studentPort:3004,
 	    blockChainIp:"localhost",
 	    blockChainPort:3008
